@@ -1,0 +1,51 @@
+models:
+  - name: stg_customers
+    description: staging model for customers source table.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_locations
+    description: staging model for jaffle shop locations
+    columns:
+      - name: location_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_order_items
+    description: staging model for order items source table
+    access: protected
+    config:
+      group: product
+    columns:
+      - name: order_item_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_orders
+    description: staging model for orders source table
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_products
+    description: staging model for products source table. list of products.
+    access: private
+    config:
+      group: product
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_supplies
+    description: staging model for supplies source table.
+    access: protected
+    config:
+      group: product
+    columns:
+      - name: supply_id
+        tests:
+          - not_null

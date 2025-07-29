@@ -1,0 +1,13 @@
+semantic_models:
+  - name: dim_product_supplies
+    model: ref('dim_product_supplies')
+    entities:
+      - name: product_id
+        type: primary
+      - name: product_type
+        type: foreign
+    dimensions:
+      - name: is_food_order
+        type: categorical
+      - name: is_drink_order
+        type: categorical

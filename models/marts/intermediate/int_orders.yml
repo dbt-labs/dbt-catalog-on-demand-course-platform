@@ -1,0 +1,5 @@
+models:
+  - name: int_orders
+    description: intermetiate model joining customers and location data.
+    access: private
+    group: finance
