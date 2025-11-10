@@ -8,6 +8,11 @@ sources:
         description: One record per person who has purchased one or more items
       - name: orders
         description: One record per order (consisting of one or more order items)
+        config:
+          freshness:
+            warn_after:
+              count: 12
+              period: hour
       - name: items
         description: Items included in an order
       - name: stores
