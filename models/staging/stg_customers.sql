@@ -1,3 +1,11 @@
+{{
+    config(
+        materialized='incremental',
+        unique_key='customer_id',
+        incremental_strategy='merge'
+    )
+}}
+
 with
 
 source as (
@@ -21,3 +29,7 @@ renamed as (
 )
 
 select * from renamed
+{% if is_incremental() %}
+    -- this filter will only be applied on an incremental run
+    where customer_id > (select max(customer_id) from {{ this }}) 
+{% endif %}
