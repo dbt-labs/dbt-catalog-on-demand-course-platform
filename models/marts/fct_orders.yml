@@ -1,9 +1,9 @@
 models:
   - name: fct_orders
-    group: finance
-    access: public
     latest_version: 1
     config:
+      group: finance
+      access: public
       contract:
         enforced: true
     columns:
@@ -29,7 +29,7 @@ models:
         data_type: varchar
         tests:
           - accepted_values:
-              values:
+              arguments: 
                 - "Brooklyn"
                 - "Philadelphia"
       - name: tax_rate
